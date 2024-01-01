@@ -14,7 +14,7 @@ const fileName = path.basename(imagePath);
 // Make a POST request to the server
 axios
   .post(
-    "http://localhost:8000/img",
+    "http://localhost:8000/img/img",
     { imageData: imageBase64, fileName },
     {
       headers: {
