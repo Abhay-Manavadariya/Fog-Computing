@@ -1,7 +1,5 @@
 ## Fog Computing System
 
-# Project Overview
-
 This project implements a fog computing system using the Node.js cluster module, where client requests are processed by fog nodes running on separate CPU cores, and only necessary information is forwarded to the server node. The goal is to reduce the load on the central server and minimize request execution time by distributing tasks across fog nodes.
 
 # Tech Stack
