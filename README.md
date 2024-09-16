@@ -18,9 +18,11 @@ Prerequisites
 
 1. Clone the repository:
 
-- git clone https://github.com/Abhay-Manavadariya/Fog-Computing.git
+  - git clone https://github.com/Abhay-Manavadariya/Fog-Computing.git
 
 2. Install dependencies:
+   
+  - npm install
 
 # Running the Application
 
