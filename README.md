@@ -18,7 +18,7 @@ Prerequisites
 
 1. Clone the repository:
 
-- git clone https://github.com/your-repo/fog-computing-system.git
+- git clone https://github.com/Abhay-Manavadariya/Fog-Computing.git
 
 2. Install dependencies:
 
