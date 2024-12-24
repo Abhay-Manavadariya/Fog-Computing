@@ -1,0 +1,67 @@
+- What Is Meant by Fog Computing?
+
+Fog computing is a form of distributed computing that brings computation and data storage closer to the network edge, where many IoT devices are located.
+By doing this, fog computing reduces the reliance on the cloud for these resource-intensive tasks, improving performance and reducing latency
+
+The project focuses on designing and implementing a fog computing system to reduce latency and improve processing efficiency for client requests. 
+In traditional cloud computing models, every request is sent directly to the central server, which can lead to bottlenecks and increased response time.
+The goal of this system is to add a fog layer between edge devices and the cloud server to handle most of the computation closer to the data source (edge devices). This reduces the load on the central server, 
+improves response time, and optimizes resource usage.
+
+- Key Components:
+
+Fog Nodes: These nodes act as intermediaries between the client devices and the central server. They process the majority of requests and only forward necessary information to the server, reducing the load on the server.
+
+Server Node: A central server node handles requests that require centralized processing, such as data storage or resource-intensive operations.
+
+Client Devices: These devices send requests to the fog nodes. In this project, client requests are simulated, but they could represent IoT devices, sensors, or user applications in real-world scenarios.
+
+Fog Layer Operations :- 
+
+- Request Flow:
+
+All incoming client requests first hit the fog layer.
+Fog nodes process these requests and perform local computation. If the request requires additional processing (such as storing data), only then is the request forwarded to the central server node.
+Parallel Processing: Using async.parallel, multiple requests can be processed simultaneously, improving throughput and ensuring efficient use of resources.
+
+- Performance Optimization : 
+
+Load Distribution: By using fog nodes, the system offloads the central server from handling all requests, improving the overall response time.
+
+Cluster Management: The cluster module allows for automatic re-spawning of worker processes in case of failures, ensuring robustness in handling requests.
+
+Scalability: This architecture can easily scale by adding more fog nodes as the number of client requests grows.
+
+- usage :- 
+
+Fog computing reduces the volume of data that is sent to the cloud, thereby reducing bandwidth consumption and related costs. 
+Improved response time. Because the initial data processing occurs near the data, latency is reduced, and overall responsiveness is improved.
+
+- Why Cluster Module :- 
+
+Node is single threaded
+
+No matter how many cores you have, node only uses a single core of your CPU
+
+This is fine for I/O operations but if the code has long running and CPU intensive operations, your application might struggle from a performance point of view.
+
+The cluster module enables the creation of child process (also called workers) that run simultaneously.
+All created workers share the same server port.
+
+- Why shouldn't we simply create a large number of workers using cluster.fork()?
+
+We should only create as many workers as there are CPU cores on the machine the app is running
+
+If you create more workers than there are logical cores on the computer it can cause an overhead as the system will have to schedule all the created workers with fewer number of cores.
+
+- Worker Threads Module :-
+
+The worker_threads module enables the use of threads that execute JavaScript in parallel
+
+Code executed in a worker thread runs in a separate child process, preventing it from blocking your main application
+
+The cluster module can be used to run multiple instances of Node.js that can distribute workloads
+
+worker_threads module allows running multiple application threads within a single Node.js instance
+
+When process isolation is not needed, that is, no separate instances of V8, event loop and memory are needed, you should use worker_threads
